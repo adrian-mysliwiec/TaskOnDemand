@@ -4,6 +4,8 @@ This template should help get you started developing with Vue 3, Vite and Quasar
 
 ## Recommended IDE Setup
 
+Test
+
 Check my Profile for setup: https://vscode.dev/profile/github/ac852643a4faef8ba255ef97a5f8c823
 
 ## Customize configuration
