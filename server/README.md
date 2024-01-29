@@ -1,8 +1,5 @@
-# server-templ-vitest
-Express server template with PostgreSQL integration.
-Based on https://github.com/Robert-Baumgartner/server-templ
-
-Added debug module and errorhandler, and some fixes for pq module.
+# server-templ
+Express server template with PostgreSQL integration
 
 ##
 Hint: You need to define your own .env file. Start by renaming .env.example and provide the necessary information
@@ -13,13 +10,13 @@ Hint: You need to define your own .env file. Start by renaming .env.example and 
 npm install
 ```
 
-### Start for Development (nodemon)
+### Start for Development
 
 ```sh
 npm run dev
 ```
 
-### Start for Production (node)
+### Start for Production
 
 ```sh
 npm start

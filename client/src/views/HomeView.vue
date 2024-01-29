@@ -1,11 +1,10 @@
-<script setup>
-import { storeToRefs } from 'pinia';
-import { useMyStore } from '../stores/myStore';
-
-const myStore = useMyStore();
-const { message } = storeToRefs(myStore);
-</script>
+<!-- Landing page
+  display general information about the company and a slideshow 
+-->
+<script setup></script>
 
 <template>
-  <div class="column items-center q-mt-md"><span class="text-h4">Home</span><br /><span>{{ message }}</span></div>
+  <div class="q-pa-md">
+    <div class="row justify-center"><h3>Home</h3></div>
+  </div>
 </template>

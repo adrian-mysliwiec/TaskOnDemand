@@ -1,10 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 
-const leftDrawerOpen = ref(false);
 const rightDrawerOpen = ref(false);
 
-const toggleLeftDrawer = () => (leftDrawerOpen.value = !leftDrawerOpen.value);
 const toggleRightDrawer = () => (rightDrawerOpen.value = !rightDrawerOpen.value);
 </script>
 
@@ -12,30 +10,28 @@ const toggleRightDrawer = () => (rightDrawerOpen.value = !rightDrawerOpen.value)
   <q-layout view="hHh lpR fFf">
     <q-header elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
+        <!-- <q-btn class="mobile-only" dense flat round icon="menu" @click="toggleLeftDrawer" /> -->
 
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          Title
+        <q-toolbar-title class=" text-center ">
+        <img src="/logo.png" style="width: 5%" class="q-mt-md"/>
+
+          <h4 class="desktop-only text-white q-my-sm">TaskOnDemand</h4>
+          <q-tabs class="desktop-only" align="center">
+            <q-route-tab class="text-accent text-white text-center" to="/" label="Home" />
+            <q-route-tab class="text-accent text-white" to="/table" label="Aufträge" />
+            <q-route-tab class="text-accent text-white" to="/dienstleister" label="Dienstleister" />
+          </q-tabs>
         </q-toolbar-title>
-
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
+        <q-btn class="mobile-only" dense flat round icon="menu" @click="toggleRightDrawer" />
       </q-toolbar>
-
-      <q-tabs align="left">
-        <q-route-tab to="/" label="Home" />
-        <q-route-tab to="/about" label="About" />
-      </q-tabs>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" side="left" bordered>
-      <!-- drawer content -->
-    </q-drawer>
-
     <q-drawer v-model="rightDrawerOpen" side="right" bordered>
-      <!-- drawer content -->
+      <q-tabs align="left" vertical>
+        <q-route-tab to="/" label="Start" />
+        <q-route-tab to="/table" label="Brillen" />
+        <q-route-tab to="/designer" label="Designer" />
+      </q-tabs>
     </q-drawer>
 
     <q-page-container>

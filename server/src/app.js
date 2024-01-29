@@ -1,17 +1,16 @@
 import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import path from 'path';
 import cors from 'cors';
-import debug from 'debug';
-import { errorHandler, notFound } from './middleware/errorHandler.js';
-
-import testRoute from './api/routes/testRoutes.js';
+import path from 'path';
+import testRoute from './api/routes/test.js';
+import designRoutes from './api/routes/dienstleister.js';
+import auftraegeRoutes from './api/routes/auftraege.js';
+import dienstnehmerRoutes from './api/routes/dienstnehmer.js';
+import { notFound, errorHandler } from '../middleware/errorHandler.js';
 
 dotenv.config();
-debug.enable(process.env.DEBUG); // enable DEBUG from .env
 
-const startup = debug('startup');
 const dirname = path.resolve();
 
 const app = express();
@@ -20,15 +19,16 @@ app.use(morgan('dev'));
 app.use(cors());
 
 app.use(express.static(path.join(dirname, '/public')));
+
 app.use(express.json());
 
 app.use('/test', testRoute);
+app.use('/dienstleister', designRoutes);
+app.use('/auftraege', auftraegeRoutes);
+app.use('/dienstnehmer', dienstnehmerRoutes);
 
-app.use(errorHandler);
 app.use(notFound);
-
-// don´t start server when in test mode
+app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => startup(`Server is running on port ${PORT}`));
 
-export default app;
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

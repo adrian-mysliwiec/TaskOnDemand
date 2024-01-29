@@ -1,0 +1,47 @@
+GET http://localhost:3000/dienstleister
+################################
+Post http://localhost:3000/dienstleister
+Content-Type: application/json
+
+{
+    "Firma":"ALDI",
+      "Beschreibung":"Fenster putzen",
+      "Stundenlohn":"1",
+     "Vorname":"ADI",
+      "Mail":"mail",
+      "Nachname":"nd",
+      "TelNummer":"0060"
+}
+
+###
+GET http://localhost:3000/auftraege
+###
+GET http://localhost:3000/auftraege/63
+
+###
+GET http://localhost:3000/dienstnehmer
+###
+Post http://localhost:3000/auftraege
+Content-Type: application/json
+
+{
+    "Stundenlohn": "12",
+    "Datum": "2023-02-12",
+    "Status": "offen",
+    "Uhrzeit": "19:00",
+    "Ort": "Wien",
+    "Beschreibung": "Karton tragen",
+    "TelNummer":"06763309626",
+    "Dauer":"3",
+    "Strasse":"Kreuzgasse",
+    "PLZ":"1180"
+}
+###
+Patch http://localhost:3000/auftraege/21
+Content-Type: application/json
+
+{
+    "Uhrzeit": "14:00"
+}
+###
+delete http://localhost:3000/auftraege/1
