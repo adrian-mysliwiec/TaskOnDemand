@@ -5,12 +5,14 @@ import {
   changeAuftrag,
   delAuftrag,
   AuftragDetails,
+  getAuftraegeById,
 } from '../../controller/auftraege.js';
 
 const router = express.Router();
 
 // get all designers
 router.get('/', getAuftraege);
+router.get('/ByID/:Auftragsersteller', getAuftraegeById);
 router.get('/:AnzeigeNr', AuftragDetails);
 // create a new designer
 router.post('/', createAuftrag);

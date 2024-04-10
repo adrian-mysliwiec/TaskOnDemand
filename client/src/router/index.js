@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import AuftragTable from '../views/AuftragTable.vue';
-import GlassesDetail from '../views/GlassesDetail.vue';
 import DienstleisterView from '../views/DienstleisterView.vue';
+import AboutView from '../views/AboutView.vue';
+import RegisterView from '../views/Register.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,16 +18,21 @@ const router = createRouter({
       name: 'table',
       component: AuftragTable,
     },
-    {
-      path: '/detail/:id',
-      name: 'detail',
-      component: GlassesDetail,
-      props: true,
-    },
+
     {
       path: '/dienstleister',
       name: 'dienstleister',
       component: DienstleisterView,
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutView,
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterView,
     },
   ],
 });

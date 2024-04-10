@@ -4,10 +4,18 @@ export const getAuftraege = async () => {
   const { rows } = await query('SELECT * from "Arbeitsauftrag" ');
   return rows;
 };
-
+export const getAuftraegeById = async (Auftragsersteller) => {
+  const { rows } = await query(
+    'SELECT * from "Arbeitsauftrag" where "Auftragsersteller"=$1',
+    [Auftragsersteller],
+  );
+  return rows;
+};
 export const createAuftrag = async (newData) => {
   const { rows } = await query(
-    'INSERT INTO "Arbeitsauftrag"("Stundenlohn", "Datum", "Status", "Uhrzeit", "Ort", "Beschreibung","TelNummer","Dauer","Strasse","PLZ") VALUES ($1, $2, $3, $4, $5, $6,$7,$8,$9,$10) returning *',
+    `INSERT INTO "Arbeitsauftrag"
+    ("Stundenlohn", "Datum", "Status", "Uhrzeit", "Ort", "Beschreibung","TelNummer","Dauer","Strasse","PLZ")
+     VALUES ($1, $2, $3, $4, $5, $6,$7,$8,$9,$10) returning *`,
     [
       newData.Stundenlohn,
       newData.Datum,
